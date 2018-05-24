@@ -46,8 +46,8 @@ public class CampoTreinamento {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-		driver.findElement(By.id("elementosForm:comidaFavorita:2")).click();
-		Assert.assertTrue(driver.findElement(By.id("elementosForm:comidaFavorita:2")).isSelected());
+		driver.findElement(By.id("elementosForm:comidaFavorita")).click();
+		Assert.assertTrue(driver.findElement(By.id("elementosForm:comidaFavorita")).isSelected());
 		driver.quit();
 	}
 	
