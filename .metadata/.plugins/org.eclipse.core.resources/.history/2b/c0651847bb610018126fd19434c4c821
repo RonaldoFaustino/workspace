@@ -1,0 +1,24 @@
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+
+public class TestCadastroRegraDeNegocio {
+
+	@Test
+	public void DeveValidarNomeObrigatorio(){
+		WebDriver cadastro = new ChromeDriver();
+		cadastro.manage().window().maximize();
+		cadastro.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		
+		//cadastro.findElement(By.name("elementosForm:nome")).sendKeys("Maria");
+		cadastro.findElement(By.id("elementosForm:cadastrar")).click();
+		Alert alert = cadastro.switchTo().alert();
+		Assert.assertEquals("Nome eh obrigatorio", alert.getText());
+		//cadastro.quit();
+	}
+}

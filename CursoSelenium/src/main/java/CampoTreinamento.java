@@ -1,6 +1,8 @@
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
@@ -17,42 +19,50 @@ import org.openqa.selenium.support.ui.Select;
 
 public class CampoTreinamento {
 	
-	@Test
-	public void testeTextField(){
-		WebDriver driver = new ChromeDriver();
+	private WebDriver driver;
+		
+	@Before
+	public void inicializa2(){
+				
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-		driver.findElement(By.name("elementosForm:nome")).sendKeys("Teste de Escrita");
-		Assert.assertEquals("Teste de Escrita",driver.findElement(By.name("elementosForm:nome")).getAttribute("value"));
+	}
+	
+	@After
+	public void finaliza(){
 		driver.quit();
 		
 	}
 	
 	@Test
+	public void testeTextField(){
+		
+		driver.findElement(By.name("elementosForm:nome")).sendKeys("Teste de Escrita");
+		Assert.assertEquals("Teste de Escrita",driver.findElement(By.name("elementosForm:nome")).getAttribute("value"));
+		
+		
+	}
+	
+	@Test
 	public void deveInteragirComTextArea(){
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		
 		driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("TextArea");
 		Assert.assertEquals("TextArea",driver.findElement(By.id("elementosForm:sugestoes")).getAttribute("value"));
-		driver.quit();
+		
 	}
 	
 	@Test
 	public void deveInteragirComRadioButton(){
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		
 		driver.findElement(By.id("elementosForm:sexo:0")).click();
 		Assert.assertTrue(driver.findElement(By.id("elementosForm:sexo:0")).isSelected());
-		driver.quit();
+		
 	}
 	
 	@Test
 	public void deveInteragirComCheckBox(){
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		
 		driver.findElement(By.id("elementosForm:comidaFavorita:2")).click();
 		Assert.assertTrue(driver.findElement(By.id("elementosForm:comidaFavorita:2")).isSelected());
 		driver.quit();
@@ -60,9 +70,7 @@ public class CampoTreinamento {
 	
 	@Test
 	public void deveInteragirComCombo(){
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		
 	    WebElement element = driver.findElement(By.name("elementosForm:escolaridade"));
 	    Select combo = new Select(element);
 	    //combo.selectByIndex(3);
@@ -75,9 +83,7 @@ public class CampoTreinamento {
 	
 	@Test
 	public void deveVerificarValoresCombo(){
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		
 	    WebElement element = driver.findElement(By.name("elementosForm:escolaridade"));
 	    Select combo = new Select(element);
 	    List<WebElement> options = combo.getOptions();
@@ -95,9 +101,7 @@ public class CampoTreinamento {
 	
 	@Test
 	public void deveVerificarValoresComboMultiplos(){
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		
 	    WebElement element = driver.findElement(By.id("elementosForm:esportes"));
 	    Select combo = new Select(element);
 	    combo.selectByVisibleText("Natacao");
@@ -110,26 +114,21 @@ public class CampoTreinamento {
 	    combo.deselectByVisibleText("Natacao");
 	    allSelectedOptions = combo.getAllSelectedOptions();
 	    Assert.assertEquals(2, allSelectedOptions.size());
-	    driver.quit();
+	    
 	}
 	
 	@Test
 	public void deveInteragirComBotoes(){
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		
 		WebElement botao = driver.findElement(By.id("buttonSimple"));
 		botao.click();
 		Assert.assertEquals("Obrigado!", botao.getAttribute("value"));
-		driver.quit();
+		
 	}
 	
 	@Test	
 	public void deveInteragirComlinks(){
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-		
+				
 		driver.findElement(By.linkText("Voltar")).click();
 		
 		Assert.assertEquals("Voltou!", driver.findElement(By.id("resultado")).getText());
@@ -139,9 +138,7 @@ public class CampoTreinamento {
 	@Test
 	
 	public void deveBuscartextosNapagina(){
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		
 		//driver.findElement(By.tagName("body"));
 		//System.out.println(driver.findElement(By.tagName("body")).getText());
 		
@@ -154,10 +151,7 @@ public class CampoTreinamento {
 	@Test
 	
 	public void deveInteragirComAlertSimples(){
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-		
+				
 		driver.findElement(By.id("alert")).click();
 		Alert alert = driver.switchTo().alert();
 		String texto = alert.getText();
@@ -169,10 +163,7 @@ public class CampoTreinamento {
 	@Test
 	
 	public void deveInteragirComAlertConfirme(){
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-		
+				
 		driver.findElement(By.id("confirm")).click();
 		Alert alerta = driver.switchTo().alert();
 		String texto = alerta.getText();
@@ -192,9 +183,6 @@ public class CampoTreinamento {
 @Test
 	
 	public void deveInteragirComPront(){
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 		
 		driver.findElement(By.id("prompt")).click();
 		Alert alerta = driver.switchTo().alert();
@@ -211,19 +199,19 @@ public class CampoTreinamento {
 
 	@Test
 	public void CadastroCompleto(){
-		WebDriver cadastro = new ChromeDriver();
-		cadastro.manage().window().maximize();
-		cadastro.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 		
-		cadastro.findElement(By.name("elementosForm:nome")).sendKeys("Ronaldo");
-		Assert.assertEquals("Ronaldo",cadastro.findElement(By.name("elementosForm:nome")).getAttribute("value"));
-		cadastro.findElement(By.id("elementosForm:sobrenome")).sendKeys("Oliveira Viana");
-		Assert.assertEquals("Oliveira Viana",cadastro.findElement(By.id("elementosForm:sobrenome")).getAttribute("value"));
-		cadastro.findElement(By.id("elementosForm:sexo:0")).click();
-		Assert.assertTrue(cadastro.findElement(By.id("elementosForm:sexo:0")).isSelected());
-		cadastro.findElement(By.id("elementosForm:comidaFavorita:2")).click();
-		Assert.assertTrue(cadastro.findElement(By.id("elementosForm:comidaFavorita:2")).isSelected());
-		new Select(cadastro.findElement(By.id("elementosForm:escolaridade"))).selectByVisibleText("Superior");
+		driver.findElement(By.name("elementosForm:nome")).sendKeys("Maria");
+		Assert.assertEquals("Maria",driver.findElement(By.name("elementosForm:nome")).getAttribute("value"));
+		driver.findElement(By.id("elementosForm:sobrenome")).sendKeys("Eduarda Faustino");
+		Assert.assertEquals("Eduarda Faustino",driver.findElement(By.id("elementosForm:sobrenome")).getAttribute("value"));
+		driver.findElement(By.id("elementosForm:sexo:0")).click();
+		Assert.assertTrue(driver.findElement(By.id("elementosForm:sexo:0")).isSelected());
+		driver.findElement(By.id("elementosForm:comidaFavorita:2")).click();
+		Assert.assertTrue(driver.findElement(By.id("elementosForm:comidaFavorita:2")).isSelected());
+		new Select(driver.findElement(By.id("elementosForm:escolaridade"))).selectByVisibleText("Superior");
 		
 		//forma de validação
 		
@@ -247,22 +235,22 @@ public class CampoTreinamento {
 		/*WebElement element1 = cadastro.findElement(By.id("elementosForm:esportes"));
 	    Select combo1 = new Select(element1);
 	    combo1.selectByVisibleText("Futebol");*/
-		new Select(cadastro.findElement(By.id("elementosForm:esportes"))).selectByVisibleText("Futebol");
+		new Select(driver.findElement(By.id("elementosForm:esportes"))).selectByVisibleText("Futebol");
 		
 	    
-	    WebElement botao = cadastro.findElement(By.id("elementosForm:cadastrar"));
+	    WebElement botao = driver.findElement(By.id("elementosForm:cadastrar"));
 		botao.click();
 		//Assert.assertEquals("Obrigado!", botao.getAttribute("value"));
-		Assert.assertTrue(cadastro.findElement(By.id("resultado")).getText().startsWith("Cadastrado!"));
-		Assert.assertEquals("Ronaldo", cadastro.findElement(By.id("descNome")).getText());
-		Assert.assertEquals("Oliveira Viana", cadastro.findElement(By.id("descSobrenome")).getText());
-		Assert.assertEquals("Masculino", cadastro.findElement(By.id("descSexo")).getText());
-		Assert.assertEquals("Pizza", cadastro.findElement(By.id("descComida")).getText());
-		Assert.assertEquals("superior", cadastro.findElement(By.id("descEscolaridade")).getText());
-		Assert.assertEquals("Futebol", cadastro.findElement(By.id("descEsportes")).getText());
-		Assert.assertEquals("", cadastro.findElement(By.id("descSugestoes")).getText());
-	    
+		Assert.assertTrue(driver.findElement(By.id("resultado")).getText().startsWith("Cadastrado!"));
+		//Assert.assertEquals("Ronaldo", cadastro.findElement(By.id("descNome")).getText());
+		Assert.assertTrue(driver.findElement(By.id("descNome")).getText().endsWith("Maria"));
+		Assert.assertTrue(driver.findElement(By.id("descSobrenome")).getText().endsWith("Eduarda Faustino"));
+		Assert.assertTrue(driver.findElement(By.id("descSexo")).getText().endsWith("Masculino"));
+		Assert.assertTrue(driver.findElement(By.id("descComida")).getText().endsWith("Pizza"));
+		Assert.assertTrue(driver.findElement(By.id("descEscolaridade")).getText().endsWith("superior"));
+		Assert.assertTrue(driver.findElement(By.id("descEsportes")).getText().endsWith("Futebol"));
+		//Assert.assertEquals("Sugestoes: ", cadastro.findElement(By.id("descSugestoes")).getText());
 	    
 	}
-		
+	
 }

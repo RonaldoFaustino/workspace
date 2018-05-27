@@ -1,4 +1,6 @@
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -6,6 +8,22 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestAlert {
+	
+	private WebDriver driver;
+	
+	@Before
+	public void inicializa2(){
+				
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+	}
+	
+	@After
+	public void finaliza(){
+		driver.quit();
+		
+	}
 	public void deveInteragirComBotoes(){
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -15,10 +33,7 @@ public class TestAlert {
 	@Test
 	
 	public void deveInteragirComAlertSimples(){
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-		
+				
 		driver.findElement(By.id("alert")).click();
 		Alert alert = driver.switchTo().alert();
 		String texto = alert.getText();
@@ -30,10 +45,7 @@ public class TestAlert {
 	@Test
 	
 	public void deveInteragirComAlertConfirme(){
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-		
+				
 		driver.findElement(By.id("confirm")).click();
 		Alert alerta = driver.switchTo().alert();
 		String texto = alerta.getText();
@@ -53,10 +65,7 @@ public class TestAlert {
 @Test
 	
 	public void deveInteragirComPront(){
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-		
+				
 		driver.findElement(By.id("prompt")).click();
 		Alert alerta = driver.switchTo().alert();
 		Assert.assertEquals("Digite um numero", alerta.getText());
