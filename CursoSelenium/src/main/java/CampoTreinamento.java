@@ -20,6 +20,7 @@ import org.openqa.selenium.support.ui.Select;
 public class CampoTreinamento {
 	
 	private WebDriver driver;
+	
 		
 	@Before
 	public void inicializa2(){
@@ -27,6 +28,7 @@ public class CampoTreinamento {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		
 	}
 	
 	@After
