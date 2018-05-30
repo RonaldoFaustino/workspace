@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="DslCampoDeTreinamento" project="CursoSelenium" tests="14" started="14" failures="0" errors="0" ignored="0">
+  <testsuite name="DslCampoDeTreinamento" time="55.844">
+    <testcase name="deveInteragirComCombo" classname="DslCampoDeTreinamento" time="4.761"/>
+    <testcase name="deveInteragirComPront" classname="DslCampoDeTreinamento" time="3.578"/>
+    <testcase name="deveInteragirComBotoes" classname="DslCampoDeTreinamento" time="3.379"/>
+    <testcase name="deveInteragirComlinks" classname="DslCampoDeTreinamento" time="3.284"/>
+    <testcase name="CadastroCompleto" classname="DslCampoDeTreinamento" time="7.114"/>
+    <testcase name="deveInteragirComRadioButton" classname="DslCampoDeTreinamento" time="3.309"/>
+    <testcase name="deveVerificarValoresCombo" classname="DslCampoDeTreinamento" time="3.608"/>
+    <testcase name="deveBuscartextosNapagina" classname="DslCampoDeTreinamento" time="3.143"/>
+    <testcase name="testeTextField" classname="DslCampoDeTreinamento" time="3.467"/>
+    <testcase name="deveInteragirComCheckBox" classname="DslCampoDeTreinamento" time="4.715"/>
+    <testcase name="deveInteragirComAlertSimples" classname="DslCampoDeTreinamento" time="4.365"/>
+    <testcase name="deveInteragirComAlertConfirme" classname="DslCampoDeTreinamento" time="3.498"/>
+    <testcase name="deveInteragirComTextArea" classname="DslCampoDeTreinamento" time="3.487"/>
+    <testcase name="deveVerificarValoresComboMultiplos" classname="DslCampoDeTreinamento" time="4.136"/>
+  </testsuite>
+</testrun>

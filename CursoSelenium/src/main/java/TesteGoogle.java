@@ -20,7 +20,7 @@ public class TesteGoogle {
 		//WebDriver driver = new InternetExplorerDriver ();		
 		//driver.manage().window().setSize(new Dimension(1200, 765));
 		driver.manage().window().maximize();	
-		driver.get("https://www.google.com");
+		
 	}
 	
 	@After
@@ -31,7 +31,7 @@ public class TesteGoogle {
 	
 	@Test
 	public void teste() {
-		
+		driver.get("https://www.google.com");
 		//System.out.println(driver.getTitle());
 		Assert.assertEquals("Google", driver.getTitle());
 		
