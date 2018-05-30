@@ -29,9 +29,10 @@ public class DslTesteCadastro {
 
 	@Test
 	public void CadastroCompleto(){
-		page.setNome("Maria");
+				
+		dsl.escrever("elementosForm:nome","Maria");
 		//Assert.assertEquals("Maria",driver.findElement(By.name("elementosForm:nome")).getAttribute("value"));
-		page.setNome("Eduarda Faustino");
+		dsl.escrever("elementosForm:sobrenome","Eduarda Faustino");
 		//Assert.assertEquals("Eduarda Faustino",driver.findElement(By.id("elementosForm:sobrenome")).getAttribute("value"));
 		dsl.clicarRadio("elementosForm:sexo:0");
 		//Assert.assertTrue(driver.findElement(By.id("elementosForm:sexo:0")).isSelected());
