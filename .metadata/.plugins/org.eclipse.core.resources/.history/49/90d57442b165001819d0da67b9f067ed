@@ -1,0 +1,16 @@
+import org.junit.Assert;
+
+public class TestRegraCadastro {
+	
+	
+	
+	public void deveValidarEsportistaIndeciso(){
+		page.setNome("Nome qualquer");
+		page.setSobrenome("Sobrenome qualquer");
+		page.setSexoFeminino();
+		page.setComidaCarne();
+		page.setEsporte("Karate", "O que eh esporte?" );
+		page.setCadastrar();
+		Assert.assertEquals("Voce faz esporte ou nao?", dsl.alertaObterTextoEAceita());
+
+}

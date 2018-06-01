@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="SuiteTeste" project="CursoSelenium" tests="25" started="25" failures="1" errors="0" ignored="0">
+  <testsuite name="SuiteTeste" time="95.235">
+    <testsuite name="DslPageParametrizacaoTestRegraCadastro" time="19.864">
+      <testsuite name="[0]" time="4.955">
+        <testcase name="deveValidaregras[0]" classname="DslPageParametrizacaoTestRegraCadastro" time="4.955"/>
+      </testsuite>
+      <testsuite name="[1]" time="3.395">
+        <testcase name="deveValidaregras[1]" classname="DslPageParametrizacaoTestRegraCadastro" time="3.395"/>
+      </testsuite>
+      <testsuite name="[2]" time="3.894">
+        <testcase name="deveValidaregras[2]" classname="DslPageParametrizacaoTestRegraCadastro" time="3.894"/>
+      </testsuite>
+      <testsuite name="[3]" time="3.652">
+        <testcase name="deveValidaregras[3]" classname="DslPageParametrizacaoTestRegraCadastro" time="3.652"/>
+      </testsuite>
+      <testsuite name="[4]" time="3.967">
+        <testcase name="deveValidaregras[4]" classname="DslPageParametrizacaoTestRegraCadastro" time="3.967"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="DslCampoDeTreinamento" time="57.021">
+      <testcase name="deveInteragirComCombo" classname="DslCampoDeTreinamento" time="3.429"/>
+      <testcase name="deveInteragirComPront" classname="DslCampoDeTreinamento" time="3.106"/>
+      <testcase name="deveInteragirComBotoes" classname="DslCampoDeTreinamento" time="3.355"/>
+      <testcase name="deveInteragirComlinks" classname="DslCampoDeTreinamento" time="3.749"/>
+      <testcase name="CadastroCompleto" classname="DslCampoDeTreinamento" time="7.404"/>
+      <testcase name="deveInteragirComRadioButton" classname="DslCampoDeTreinamento" time="3.612"/>
+      <testcase name="deveVerificarValoresCombo" classname="DslCampoDeTreinamento" time="3.639"/>
+      <testcase name="testTextFieldDuplo" classname="DslCampoDeTreinamento" time="3.512"/>
+      <testcase name="deveBuscartextosNapagina" classname="DslCampoDeTreinamento" time="3.229"/>
+      <testcase name="testeTextField" classname="DslCampoDeTreinamento" time="3.478"/>
+      <testcase name="deveInteragirComCheckBox" classname="DslCampoDeTreinamento" time="3.274"/>
+      <testcase name="deveInteragirComAlertSimples" classname="DslCampoDeTreinamento" time="4.31"/>
+      <testcase name="deveInteragirComAlertConfirme" classname="DslCampoDeTreinamento" time="3.224"/>
+      <testcase name="deveInteragirComTextArea" classname="DslCampoDeTreinamento" time="3.204">
+        <failure>
+          <expected>TextArea
+
+ Teste</expected>
+          <actual>TextArea</actual>org.junit.ComparisonFailure: expected:&lt;TextArea[
+
+ Teste]&gt; but was:&lt;TextArea[]&gt;&#13;
+	at org.junit.Assert.assertEquals(Assert.java:115)&#13;
+	at org.junit.Assert.assertEquals(Assert.java:144)&#13;
+	at DslCampoDeTreinamento.deveInteragirComTextArea(DslCampoDeTreinamento.java:52)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#13;
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:128)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:27)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+&#13;
+</failure>
+      </testcase>
+      <testcase name="deveVerificarValoresComboMultiplos" classname="DslCampoDeTreinamento" time="4.496"/>
+    </testsuite>
+    <testsuite name="DslTestCadastroRegraDeNegocio" time="18.349">
+      <testcase name="DeveValidarNomeObrigatorio" classname="DslTestCadastroRegraDeNegocio" time="3.082"/>
+      <testcase name="deveValidarComidaVegetariana" classname="DslTestCadastroRegraDeNegocio" time="4.001"/>
+      <testcase name="DeveValidarSobreNomeObrigatorio" classname="DslTestCadastroRegraDeNegocio" time="3.173"/>
+      <testcase name="DeveValidarSexoObrigatorio" classname="DslTestCadastroRegraDeNegocio" time="4.087"/>
+      <testcase name="deveValidarEsportistaIndeciso" classname="DslTestCadastroRegraDeNegocio" time="4.006"/>
+    </testsuite>
+  </testsuite>
+</testrun>

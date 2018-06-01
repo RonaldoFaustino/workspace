@@ -9,6 +9,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.By.ByName;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -33,7 +34,7 @@ public class CampoTreinamento {
 	
 	@After
 	public void finaliza(){
-		driver.quit();
+		//driver.quit();
 		
 	}
 	
@@ -253,6 +254,17 @@ public class CampoTreinamento {
 		Assert.assertTrue(driver.findElement(By.id("descEsportes")).getText().endsWith("Futebol"));
 		//Assert.assertEquals("Sugestoes: ", cadastro.findElement(By.id("descSugestoes")).getText());
 	    
+	}
+	
+	@Test
+	public void testJavaScript(){
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+	//	js.executeScript("alert('Testando js via selenium')");
+		js.executeScript("document.getElementById('elementosForm:nome').value = 'Escrita via js'");
+		js.executeScript("document.getElementById('elementosForm:sobrenome').type = 'radio'");
+		
+		WebElement  element = driver.findElement(By.id("elementosForm:nome"));
+		js.executeScript("arguments[0].style.border = arguments[1]", element, "solid 4px red");
 	}
 	
 }

@@ -49,7 +49,7 @@ public class DslCampoDeTreinamento {
 	public void deveInteragirComTextArea(){
 		
 		dsl.escrever("elementosForm:sugestoes","TextArea");
-		Assert.assertEquals("TextArea\n\n Teste", dsl.obterValorCampo("elementosForm:sugestoes"));
+		Assert.assertEquals("TextArea", dsl.obterValorCampo("elementosForm:sugestoes"));
 		
 	}
 	

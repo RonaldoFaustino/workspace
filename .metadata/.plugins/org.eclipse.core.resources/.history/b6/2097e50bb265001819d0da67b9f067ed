@@ -1,0 +1,31 @@
+import org.junit.Assert;
+import org.junit.Before;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class DslPageParametrizacaoTestRegraCadastro {
+	
+	private WebDriver driver;
+	private DSL dsl;
+	private CampoTreinamentoPage page;
+	
+	@Before
+	public void inicializa(){
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		dsl = new DSL(driver);
+		page = new CampoTreinamentoPage(driver);
+	}
+	
+	public void deveValidaregras(){
+		page.setNome("Nome qualquer");
+		page.setSobrenome("Sobrenome qualquer");
+		page.setSexoFeminino();
+		page.setComidaCarne();
+		page.setEsporte("Karate", "O que eh esporte?" );
+		page.setCadastrar();
+		Assert.assertEquals("Voce faz esporte ou nao?", dsl.alertaObterTextoEAceita());
+		
+	}
+}

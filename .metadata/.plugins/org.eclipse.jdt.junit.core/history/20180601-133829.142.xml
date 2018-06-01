@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="DslPageParametrizacaoTestRegraCadastro" project="CursoSelenium" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="DslPageParametrizacaoTestRegraCadastro" time="0.0">
+    <testsuite name="[0]" time="0.0">
+      <testcase name="deveValidaregras[0]" classname="DslPageParametrizacaoTestRegraCadastro" time="0.0">
+        <error>java.lang.IllegalAccessException: Class org.junit.runners.parameterized.BlockJUnit4ClassRunnerWithParameters can not access a member of class DslPageParametrizacaoTestRegraCadastro with modifiers "private"&#13;
+	at sun.reflect.Reflection.ensureMemberAccess(Unknown Source)&#13;
+	at java.lang.reflect.AccessibleObject.slowCheckMemberAccess(Unknown Source)&#13;
+	at java.lang.reflect.AccessibleObject.checkAccess(Unknown Source)&#13;
+	at java.lang.reflect.Field.set(Unknown Source)&#13;
+	at org.junit.runners.parameterized.BlockJUnit4ClassRunnerWithParameters.createTestUsingFieldInjection(BlockJUnit4ClassRunnerWithParameters.java:62)&#13;
+	at org.junit.runners.parameterized.BlockJUnit4ClassRunnerWithParameters.createTest(BlockJUnit4ClassRunnerWithParameters.java:36)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner$1.runReflectiveCall(BlockJUnit4ClassRunner.java:266)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:263)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:128)&#13;
+	at org.junit.runners.Suite.runChild(Suite.java:27)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+&#13;
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testrun>

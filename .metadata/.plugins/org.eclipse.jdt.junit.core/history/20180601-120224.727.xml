@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="DslTestCadastroRegraDeNegocio" project="CursoSelenium" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="DslTestCadastroRegraDeNegocio" time="20.39">
+    <testcase name="DeveValidarNomeObrigatorio" classname="DslTestCadastroRegraDeNegocio" time="4.683"/>
+    <testcase name="deveValidarComidaVegetariana" classname="DslTestCadastroRegraDeNegocio" time="3.984"/>
+    <testcase name="DeveValidarSobreNomeObrigatorio" classname="DslTestCadastroRegraDeNegocio" time="4.048"/>
+    <testcase name="DeveValidarSexoObrigatorio" classname="DslTestCadastroRegraDeNegocio" time="3.517"/>
+    <testcase name="deveValidarEsportistaIndeciso" classname="DslTestCadastroRegraDeNegocio" time="4.158"/>
+  </testsuite>
+</testrun>

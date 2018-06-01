@@ -13,7 +13,7 @@ public class DslTesteCadastro {
 	
 	@Before
 	public void inicializa(){
-	WebDriver driver = new ChromeDriver();
+	driver = new ChromeDriver();
 	driver.manage().window().maximize();
 	driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 	dsl = new DSL(driver);
@@ -21,7 +21,7 @@ public class DslTesteCadastro {
 	
 	
 	}
-	
+			
 	@After
 	public void finaliza(){
 		driver.quit();
@@ -31,13 +31,13 @@ public class DslTesteCadastro {
 	public void CadastroCompleto(){
 		page.setNome("Maria");
 		//Assert.assertEquals("Maria",driver.findElement(By.name("elementosForm:nome")).getAttribute("value"));
-		page.setNome("Eduarda Faustino");
+		page.setSobrenome("Eduarda Faustino");
 		//Assert.assertEquals("Eduarda Faustino",driver.findElement(By.id("elementosForm:sobrenome")).getAttribute("value"));
-		dsl.clicarRadio("elementosForm:sexo:0");
+		page.setSexoMasculino();
 		//Assert.assertTrue(driver.findElement(By.id("elementosForm:sexo:0")).isSelected());
-		dsl.clicarRadio("elementosForm:comidaFavorita:2");
+		page.setComidaPizza();
 		//Assert.assertTrue(driver.findElement(By.id("elementosForm:comidaFavorita:2")).isSelected());
-		dsl.selecionarCombo("elementosForm:escolaridade","Superior");
+		page.setEscolaridade("Superior");
 		
 		//forma de validação
 		
@@ -61,19 +61,19 @@ public class DslTesteCadastro {
 		/*WebElement element1 = cadastro.findElement(By.id("elementosForm:esportes"));
 	    Select combo1 = new Select(element1);
 	    combo1.selectByVisibleText("Futebol");*/
-		dsl.selecionarCombo("elementosForm:esportes", "Natacao" );
+		page.setEsporte("Natacao");
 		
 	    
-	    dsl.clicarBotao("elementosForm:cadastrar");
+	    page.setCadastrar();
 		//Assert.assertEquals("Obrigado!", botao.getAttribute("value"));
-		Assert.assertTrue(dsl.obterTexto("resultado").startsWith("Cadastrado!"));
+		Assert.assertTrue(page.obterResultadoCadastro().startsWith("Cadastrado!"));
 		//Assert.assertEquals("Ronaldo", cadastro.findElement(By.id("descNome")).getText());
-		Assert.assertTrue(dsl.obterTexto("descNome").endsWith("Maria"));
-		Assert.assertEquals("Sobrenome: Eduarda Faustino", dsl.obterTexto("descSobrenome"));
-		Assert.assertEquals("Sexo: Masculino", dsl.obterTexto("descSexo"));
-		Assert.assertEquals("Comida: Pizza", dsl.obterTexto("descComida"));
-		Assert.assertEquals("Escolaridade: superior", dsl.obterTexto("descEscolaridade"));
-		Assert.assertEquals("Esportes: Natacao", dsl.obterTexto("descEsportes"));
+		Assert.assertTrue(page.obterNomeCadastro().endsWith("Maria"));
+		Assert.assertEquals("Sobrenome: Eduarda Faustino", page.obterSobrenomeCadastro());
+		Assert.assertEquals("Sexo: Masculino", page.obterSexoCadastro());
+		Assert.assertEquals("Comida: Pizza", page.obterComidaCadastro());
+		Assert.assertEquals("Escolaridade: superior", page.obterEscolaridade());
+		Assert.assertEquals("Esportes: Natacao", page.obterEsporte());
 		//Assert.assertEquals("Sugestoes: ", cadastro.findElement(By.id("descSugestoes")).getText());
 	 
 	}
