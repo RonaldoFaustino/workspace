@@ -1,5 +1,6 @@
 import java.util.List;
 
+import org.apache.bcel.generic.D2L;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,6 +22,7 @@ import org.openqa.selenium.support.ui.Select;
 public class CampoTreinamento {
 	
 	private WebDriver driver;
+	private Object dsl;
 	
 		
 	@Before
@@ -265,6 +267,11 @@ public class CampoTreinamento {
 		
 		WebElement  element = driver.findElement(By.id("elementosForm:nome"));
 		js.executeScript("arguments[0].style.border = arguments[1]", element, "solid 4px red");
+	}
+	
+	@Test
+	public void deveClicarBotaoTabela(){
+		//dsl.clicarBotaoTabela("Escolaridade", "Mestrado", "Radio", "elementosForm:tableUsuarios");
 	}
 	
 }
