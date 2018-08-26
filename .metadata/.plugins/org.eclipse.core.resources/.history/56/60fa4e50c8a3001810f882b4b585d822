@@ -1,0 +1,9 @@
+import org.junit.Test;
+
+public class TestePrime {
+	
+	@Test
+	public void deveInteragirComRadioPrime() {
+		
+	}
+}

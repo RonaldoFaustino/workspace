@@ -1,0 +1,66 @@
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import br.ce.waquino.core.DSL;
+import br.ce.waquino.core.DriverFactory;
+
+public class TesteSincronismo {
+			
+		
+		private DSL dsl;
+		
+		@Before
+		public void inicializa(){
+		
+		DriverFactory.getDriver().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		dsl = new DSL();	
+		
+		}
+				
+		@After
+		public void finaliza(){
+			DriverFactory.KillDriver();
+
+		}
+		
+		
+		@Test	
+		public void deveInteragirCampoDemorado() throws InterruptedException {
+			dsl.clicarBotao("buttonDelay");
+			
+			/*********** Sleep para espera fixa ***********/
+			
+			Thread.sleep(5000);
+			dsl.escrever("novoCampo", "Deu Certo?");
+		}
+				
+		@Test	
+		public void deveInteragirCampoDemoradoImplicita() throws InterruptedException {
+			/*********** Sleep para espera implicita ***********/
+			DriverFactory.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);	
+			dsl.clicarBotao("buttonDelay");
+			dsl.escrever("novoCampo", "Deu Certo?");
+			DriverFactory.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+		}
+		
+		@Test	
+		public void deveInteragirCampoDemoradoExplicita() throws InterruptedException {
+			/*********** Sleep para espera explicita ***********/
+			dsl.clicarBotao("buttonDelay");
+			WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 20);
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.id("novoCampo")));
+			dsl.escrever("novoCampo", "Deu Certo?");
+			
+		
+		}
+		
+}
+

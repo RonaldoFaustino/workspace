@@ -1,0 +1,69 @@
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import br.ce.waquino.core.DriverFactory;
+
+
+
+public class TesteFramesJanelas {
+	
+	@Before
+	public void inicializa2(){
+				
+		
+		DriverFactory.getDriver().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+	}
+	
+	@After
+	public void finaliza(){
+		DriverFactory.KillDriver();
+		
+	}
+	
+	@Test
+	public void deveInteragirComFrames(){
+	
+		DriverFactory.getDriver().switchTo().frame("frame1");
+		DriverFactory.getDriver().findElement(By.id("frameButton")).click();
+		Alert alert = DriverFactory.getDriver().switchTo().alert();
+		String msg = alert.getText();
+		Assert.assertEquals("Frame OK!", msg);
+		alert.accept();
+		
+		DriverFactory.getDriver().switchTo().defaultContent();
+		DriverFactory.getDriver().findElement(By.id("elementosForm:nome")).sendKeys(msg);	
+		
+	}
+	
+	@Test
+	public void deveInteragirComJanelas(){
+	
+		DriverFactory.getDriver().findElement(By.id("buttonPopUpEasy")).click();
+		DriverFactory.getDriver().switchTo().window("Popup");
+		DriverFactory.getDriver().findElement(By.tagName("textarea")).sendKeys("Deu certo!");
+		DriverFactory.getDriver().close();
+		DriverFactory.getDriver().switchTo().window("");
+		DriverFactory.getDriver().findElement(By.tagName("textarea")).sendKeys("Deu certo!");
+		
+	}
+	
+	@Test
+	public void deveInteragirComJanelasSemTitulo(){
+			
+		DriverFactory.getDriver().findElement(By.id("buttonPopUpHard")).click();
+		System.out.println(DriverFactory.getDriver().getWindowHandle());
+		System.out.println(DriverFactory.getDriver().getWindowHandles());
+		DriverFactory.getDriver().switchTo().window((String)DriverFactory.getDriver().getWindowHandles().toArray()[1]);
+		DriverFactory.getDriver().findElement(By.tagName("textarea")).sendKeys("Popup");
+		DriverFactory.getDriver().switchTo().window((String)DriverFactory.getDriver().getWindowHandles().toArray()[0]);
+		DriverFactory.getDriver().findElement(By.tagName("textarea")).sendKeys("Janela Principal!");
+		DriverFactory.KillDriver();
+		
+	}
+}

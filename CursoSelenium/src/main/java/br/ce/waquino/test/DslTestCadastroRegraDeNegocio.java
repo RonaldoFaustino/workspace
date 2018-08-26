@@ -1,0 +1,86 @@
+package br.ce.waquino.test;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import br.ce.waquino.core.DSL;
+import br.ce.waquino.core.DriverFactory;
+import br.ce.waquino.page.CampoTreinamentoPage;
+
+public class DslTestCadastroRegraDeNegocio {
+
+	private WebDriver driver;
+	private DSL dsl;
+	private CampoTreinamentoPage page;
+	
+	@Before
+	public void inicializa2(){
+				
+		
+		DriverFactory.getDriver().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		dsl = new DSL();
+		page = new CampoTreinamentoPage();
+	}
+	
+	@After
+	public void finaliza(){
+		DriverFactory.KillDriver();
+		
+	}
+
+	@Test
+	public void DeveValidarNomeObrigatorio(){
+				
+		//cadastro.findElement(By.name("elementosForm:nome")).sendKeys("Maria");
+		page.setCadastrar();		
+		Assert.assertEquals("Nome eh obrigatorio", dsl.alertaObterTextoEAceita());
+		//cadastro.quit();
+	}
+	@Test
+	public void DeveValidarSobreNomeObrigatorio(){
+				
+		page.setNome("Maria");
+		page.setCadastrar();
+		Assert.assertEquals("Sobrenome eh obrigatorio", dsl.alertaObterTextoEAceita());
+		//cadastro.quit();
+		
+	}
+	@Test
+	public void DeveValidarSexoObrigatorio(){
+		page.setNome("Maria");		
+		page.setSobrenome("Eduarda Faustino");
+		page.setCadastrar();
+		Assert.assertEquals("Sexo eh obrigatorio", dsl.alertaObterTextoEAceita());
+		//cadastro.quit();
+		
+	}
+	
+	@Test
+	public void deveValidarComidaVegetariana(){
+		page.setNome("Nome qualquer");
+		page.setSobrenome("Sobrenome qualquer");
+		page.setSexoFeminino();
+		page.setComidaCarne();
+		page.setComidaVegetariano();
+		page.setCadastrar();
+		Assert.assertEquals("Tem certeza que voce eh vegetariano?", dsl.alertaObterTextoEAceita());
+	}
+	
+	@Test
+	public void deveValidarEsportistaIndeciso(){
+		page.setNome("Nome qualquer");
+		page.setSobrenome("Sobrenome qualquer");
+		page.setSexoFeminino();
+		page.setComidaCarne();
+		page.setEsporte("Karate", "O que eh esporte?" );
+		page.setCadastrar();
+		Assert.assertEquals("Voce faz esporte ou nao?", dsl.alertaObterTextoEAceita());
+		
+	}
+
+}
